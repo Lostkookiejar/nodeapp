@@ -57,3 +57,22 @@ var sumAndMultiply = function (s, queries) {
   }
   return queries;
 };
+
+var sumAndMultiply = function (n) {
+  const digitsStr = n.toString();
+  let xStr = "";
+  let sum = 0;
+
+  for (let i = 0; i < digitsStr.length; i++) {
+    const digitChar = digitsStr[i];
+    if (digitChar !== "0") {
+      xStr += digitChar;
+      sum += Number(digitChar);
+    }
+  }
+
+  // If there are no non-zero digits, x should be 0
+  const x = xStr === "" ? 0 : Number(xStr);
+
+  return x * sum;
+};
