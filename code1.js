@@ -356,3 +356,19 @@ var minimumPushes = function (word) {
   }
   return ans;
 };
+
+var maxProduct = function (nums) {
+  let largest = -Infinity;
+  let secondLargest = -Infinity;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] >= largest) {
+      secondLargest = largest;
+      largest = nums[i];
+    }
+    if (nums[i] > secondLargest && nums[i] < largest) {
+      secondLargest = nums[i];
+    }
+  }
+  return (largest - 1) * (secondLargest - 1);
+};
