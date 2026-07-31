@@ -372,3 +372,13 @@ var maxProduct = function (nums) {
   }
   return (largest - 1) * (secondLargest - 1);
 };
+
+var maximumProduct = function (nums) {
+  nums = nums.sort((a, b) => b - a);
+
+  let n = nums.length;
+  let top3 = nums[0] * nums[1] * nums[2];
+  let oneLargeTwoSmall = nums[0] * nums[n - 2] * nums[n - 1];
+
+  return Math.max(top3, oneLargeTwoSmall);
+};
