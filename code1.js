@@ -321,3 +321,22 @@ var myAtoi = function (s) {
 
   return sign * res;
 };
+
+var minimumPushes = function (word) {
+  let histo = Array(26).fill(0);
+  word.split("").forEach((x) => {
+    histo[x.charCodeAt(0) - 97] += 1;
+  });
+  histo = histo.sort((a, b) => b - a).filter((x) => x > 0);
+  let result = 0;
+  let i = 0;
+  let loop = 1;
+  while (i < histo.length) {
+    if (i != 0 && i % 8 == 0) {
+      loop += 1;
+    }
+    result += histo[i] * loop;
+    i += 1;
+  }
+  return result;
+};
