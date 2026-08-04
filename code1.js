@@ -425,3 +425,12 @@ function sum(a, b) {
   if (b !== undefined) return a + b;
   return (b) => a + b;
 }
+
+function createPalindrome(str) {
+  const n = str.length;
+  for (let i = 0; i < Math.floor(n / 2); i++) {
+    const diff = Math.abs(str.charCodeAt(i) - str.charCodeAt(n - 1 - i));
+    if (diff !== 0 && diff !== 2) return false;
+  }
+  return true;
+}
