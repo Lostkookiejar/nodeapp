@@ -420,3 +420,8 @@ function cogRpm(cogs, n) {
 
   return [rpmAtEnd(0), rpmAtEnd(cogs.length - 1)];
 }
+
+function sum(a, b) {
+  if (b !== undefined) return a + b;
+  return (b) => a + b;
+}
