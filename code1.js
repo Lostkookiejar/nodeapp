@@ -402,3 +402,21 @@ var maxProduct = function (n) {
 
   return max1 * max2;
 };
+
+function cogRpm(cogs, n) {
+  const teethN = cogs[n];
+
+  function rpmAtEnd(end) {
+    const lo = Math.min(n, end);
+    const hi = Math.max(n, end);
+    // if any cog between n and the end (inclusive) is missing, the train is jammed
+    for (let i = lo; i <= hi; i++) {
+      if (cogs[i] === 0) return 0;
+    }
+    const meshes = Math.abs(end - n);
+    const sign = meshes % 2 === 0 ? 1 : -1;
+    return (sign * teethN) / cogs[end];
+  }
+
+  return [rpmAtEnd(0), rpmAtEnd(cogs.length - 1)];
+}
