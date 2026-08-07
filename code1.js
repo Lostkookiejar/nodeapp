@@ -434,3 +434,11 @@ function createPalindrome(str) {
   }
   return true;
 }
+function solve(s) {
+  const n = s.length;
+  for (let i = 0; i < Math.floor(n / 2); i++) {
+    const diff = Math.abs(s.charCodeAt(i) - s.charCodeAt(n - 1 - i));
+    if (diff !== 0 && diff !== 2) return false;
+  }
+  return true;
+}
