@@ -446,3 +446,21 @@ function sum(a, b) {
   if (b !== undefined) return a + b;
   return (b) => a + b;
 }
+
+const alphabetMap = new Map();
+
+for (let i = 0; i < 26; i++) {
+  // String.fromCharCode(97) starts at 'a'
+  const letter = String.fromCharCode(97 + i);
+  const value = i + 1; // Assign position value (1 to 26)
+
+  alphabetMap.set(letter, value);
+}
+
+function wordsToMarks(string) {
+  let ret = 0;
+  for (let i = 0; i < string.length; i++) {
+    ret += alphabetMap.get(string[i]);
+  }
+  return ret;
+}
