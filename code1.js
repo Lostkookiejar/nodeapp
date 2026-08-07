@@ -464,3 +464,7 @@ function wordsToMarks(string) {
   }
   return ret;
 }
+
+function spEng(sentence) {
+  return sentence.toLowerCase().includes("english");
+}
