@@ -442,3 +442,7 @@ function solve(s) {
   }
   return true;
 }
+function sum(a, b) {
+  if (b !== undefined) return a + b;
+  return (b) => a + b;
+}
