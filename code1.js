@@ -468,3 +468,14 @@ function wordsToMarks(string) {
 function spEng(sentence) {
   return sentence.toLowerCase().includes("english");
 }
+
+function toAcronym(inp) {
+  let ret = "";
+  ret += inp[0].toUpperCase();
+  for (let i = 1; i < inp.length - 1; i++) {
+    if (inp[i] == " ") {
+      ret += inp[i + 1].toUpperCase();
+    }
+  }
+  return ret;
+}
