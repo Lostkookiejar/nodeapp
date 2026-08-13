@@ -544,3 +544,7 @@ function initializeNames(name) {
 
   return [first, ...middles, last].join(" ");
 }
+
+function getCount(str) {
+  return str.split("").filter((ele) => /[aeiou]/i.test(ele)).length;
+}
