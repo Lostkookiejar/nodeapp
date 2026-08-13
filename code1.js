@@ -509,3 +509,27 @@ function last(...arg) {
     }
   }
 }
+
+function split(string, mask) {
+  console.log(string);
+  console.log(mask);
+
+  var strLength = string ? string.length : 0;
+  var maskLength = mask[0] ? mask.reduce((acc, val) => acc + val) : 0;
+
+  if (strLength == 0 && maskLength == 0) {
+    return [];
+  }
+
+  if (maskLength != strLength) return null;
+
+  var start = 0,
+    end = 0,
+    ret = [];
+  for (const len of mask) {
+    end += len;
+    ret.push(string.slice(start, end));
+    start += len;
+  }
+  return ret;
+}
