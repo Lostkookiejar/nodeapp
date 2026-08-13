@@ -479,3 +479,33 @@ function toAcronym(inp) {
   }
   return ret;
 }
+
+function last(...arg) {
+  var moreThan1 = arg.length > 1;
+
+  if (!moreThan1) {
+    switch (typeof arg[0]) {
+      case "object":
+        return arg[0][arg[0].length - 1];
+        break;
+      case "number":
+        return arg[0];
+        break;
+      case "string":
+        return arg[0][arg[0].length - 1];
+        break;
+    }
+  } else {
+    switch (typeof arg[arg.length - 1]) {
+      case "object":
+        return arg[arg.length - 1];
+        break;
+      case "number":
+        return arg[arg.length - 1];
+        break;
+      case "string":
+        return arg[arg.length - 1];
+        break;
+    }
+  }
+}
