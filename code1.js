@@ -553,3 +553,16 @@ function findNextSquare(sq) {
   if (!Number.isInteger(root)) return -1;
   return (root + 1) ** 2;
 }
+
+function brightest(colors) {
+  const value = (hex) => {
+    const r = parseInt(hex.slice(1, 3), 16);
+    const g = parseInt(hex.slice(3, 5), 16);
+    const b = parseInt(hex.slice(5, 7), 16);
+    return Math.max(r, g, b);
+  };
+
+  return colors.reduce((best, current) =>
+    value(current) > value(best) ? current : best,
+  );
+}
