@@ -548,3 +548,8 @@ function initializeNames(name) {
 function getCount(str) {
   return str.split("").filter((ele) => /[aeiou]/i.test(ele)).length;
 }
+function findNextSquare(sq) {
+  const root = Math.sqrt(sq);
+  if (!Number.isInteger(root)) return -1;
+  return (root + 1) ** 2;
+}
