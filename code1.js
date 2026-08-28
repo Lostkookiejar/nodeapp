@@ -622,3 +622,20 @@ function mirror(data) {
 
   return [...rest, max, ...rest.slice().reverse()];
 }
+
+function alphabetWar(fight) {
+  const leftPower = { w: 4, p: 3, b: 2, s: 1 };
+  const rightPower = { m: 4, q: 3, d: 2, z: 1 };
+
+  let leftScore = 0;
+  let rightScore = 0;
+
+  for (const char of fight) {
+    if (leftPower[char]) leftScore += leftPower[char];
+    if (rightPower[char]) rightScore += rightPower[char];
+  }
+
+  if (leftScore > rightScore) return "Left side wins!";
+  if (rightScore > leftScore) return "Right side wins!";
+  return "Let's fight again!";
+}
