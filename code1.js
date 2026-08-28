@@ -606,3 +606,9 @@ function nearestSq(n) {
   const root = Math.round(Math.sqrt(n));
   return root * root;
 }
+
+function calculateTotal(team1, team2) {
+  const sum1 = team1.reduce((a, b) => a + b, 0);
+  const sum2 = team2.reduce((a, b) => a + b, 0);
+  return sum1 > sum2;
+}
