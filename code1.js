@@ -612,3 +612,13 @@ function calculateTotal(team1, team2) {
   const sum2 = team2.reduce((a, b) => a + b, 0);
   return sum1 > sum2;
 }
+
+function mirror(data) {
+  if (data.length === 0) return [];
+
+  const sorted = [...data].sort((a, b) => a - b);
+  const max = sorted[sorted.length - 1];
+  const rest = sorted.slice(0, -1); // everything except the max, still ascending
+
+  return [...rest, max, ...rest.slice().reverse()];
+}
