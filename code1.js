@@ -639,3 +639,14 @@ function alphabetWar(fight) {
   if (rightScore > leftScore) return "Right side wins!";
   return "Let's fight again!";
 }
+
+function firstNonRepeated(s) {
+  for (let i = 0; i < s.length; i++) {
+    const char = s[i];
+    // check if this char appears anywhere else in the string
+    if (s.indexOf(char) === s.lastIndexOf(char)) {
+      return char;
+    }
+  }
+  return null; // your code here
+}
