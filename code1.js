@@ -686,3 +686,11 @@ function stackHeight2d(layers) {
   if (layers === 0) return 0;
   return 1 + (layers - 1) * (Math.sqrt(3) / 2);
 }
+
+function findEmployeesRole(name) {
+  const [firstName, lastName] = name.split(" ");
+  const employee = employees.find(
+    (e) => e.firstName === firstName && e.lastName === lastName,
+  );
+  return employee ? employee.role : "Does not work here!";
+}
