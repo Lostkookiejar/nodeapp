@@ -694,3 +694,11 @@ function findEmployeesRole(name) {
   );
   return employee ? employee.role : "Does not work here!";
 }
+
+function multiTable(number) {
+  const rows = [];
+  for (let i = 1; i <= 10; i++) {
+    rows.push(`${i} * ${number} = ${i * number}`);
+  }
+  return rows.join("\n");
+}
