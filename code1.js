@@ -667,8 +667,17 @@ function swapHeadAndTail(arr) {
   return ret;
 }
 
-function calculateTotal(team1, team2) {
-  const sum1 = team1.reduce((a, b) => a + b, 0);
-  const sum2 = team2.reduce((a, b) => a + b, 0);
-  return sum1 > sum2;
+function multiples(a, b, limit) {
+  const result = [];
+  const lcm = (a * b) / gcd(a, b);
+
+  for (let n = lcm; n <= limit; n += lcm) {
+    result.push(n);
+  }
+
+  return result;
+}
+
+function gcd(a, b) {
+  return b === 0 ? a : gcd(b, a % b);
 }
