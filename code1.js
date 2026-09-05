@@ -657,3 +657,12 @@ function collision(x1, y1, radius1, x2, y2, radius2) {
   const distance = Math.sqrt(dx * dx + dy * dy);
   return distance <= radius1 + radius2; // collision?
 }
+function swapHeadAndTail(arr) {
+  var ret = [];
+  ret.push(...arr.slice(Math.round(arr.length / 2), arr.length));
+  if (arr.length % 2 != 0) {
+    ret.push(arr[Math.floor(arr.length / 2)]);
+  }
+  ret.push(...arr.slice(0, Math.floor(arr.length / 2)));
+  return ret;
+}
