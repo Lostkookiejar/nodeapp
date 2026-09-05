@@ -666,3 +666,9 @@ function swapHeadAndTail(arr) {
   ret.push(...arr.slice(0, Math.floor(arr.length / 2)));
   return ret;
 }
+
+function calculateTotal(team1, team2) {
+  const sum1 = team1.reduce((a, b) => a + b, 0);
+  const sum2 = team2.reduce((a, b) => a + b, 0);
+  return sum1 > sum2;
+}
