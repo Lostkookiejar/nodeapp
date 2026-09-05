@@ -681,3 +681,8 @@ function multiples(a, b, limit) {
 function gcd(a, b) {
   return b === 0 ? a : gcd(b, a % b);
 }
+
+function stackHeight2d(layers) {
+  if (layers === 0) return 0;
+  return 1 + (layers - 1) * (Math.sqrt(3) / 2);
+}
