@@ -702,3 +702,7 @@ function multiTable(number) {
   }
   return rows.join("\n");
 }
+
+function noSpace(x) {
+  return x.replace(/\s/g, "");
+}
