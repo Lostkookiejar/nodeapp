@@ -724,3 +724,10 @@ function solve(sum, gcd) {
 
   return [gcd, sum - gcd];
 }
+
+function greet(name) {
+  if (name === "Johnny") {
+    return "Hello, my love!";
+  }
+  return "Hello, " + name + "!";
+}
