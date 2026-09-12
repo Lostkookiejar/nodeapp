@@ -715,3 +715,12 @@ function validateTime(time) {
 function sortList(sortBy, list) {
   return [...list].sort((a, b) => b[sortBy] - a[sortBy]);
 }
+
+function solve(sum, gcd) {
+  if (sum % gcd !== 0) return -1;
+
+  const k = sum / gcd; // sum = gcd * k
+  if (k < 2) return -1; // need two positive numbers, so k must be at least 2
+
+  return [gcd, sum - gcd];
+}
