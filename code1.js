@@ -706,3 +706,8 @@ function multiTable(number) {
 function noSpace(x) {
   return x.replace(/\s/g, "");
 }
+
+const regex = /^([01]?\d|2[0-3]):[0-5]\d$/;
+function validateTime(time) {
+  return regex.test(time);
+}
