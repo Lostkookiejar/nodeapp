@@ -731,3 +731,18 @@ function greet(name) {
   }
   return "Hello, " + name + "!";
 }
+
+function transposeTwoStrings(input) {
+  const [str1, str2] = input;
+  const maxLen = Math.max(str1.length, str2.length);
+  const lines = [];
+
+  for (let i = 0; i < maxLen; i++) {
+    const char1 = str1[i] || " ";
+    const char2 = str2[i] || " ";
+    lines.push(`${char1} ${char2}`);
+  }
+
+  return lines.join("\n");
+  return "";
+}
