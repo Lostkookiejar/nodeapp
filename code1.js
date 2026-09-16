@@ -752,3 +752,23 @@ function hoopCount(n) {
     ? "Keep at it until you get it"
     : "Great, now move on to tricks";
 }
+
+function likes(names) {
+  switch (names.length) {
+    case 1:
+      return `${names[0]} likes this`;
+      break;
+    case 2:
+      return `${names[0]} and ${names[1]} like this`;
+      break;
+    case 3:
+      return `${names[0]}, ${names[1]} and ${names[2]} like this`;
+      break;
+    default:
+      if (names.length > 3) {
+        return `${names[0]}, ${names[1]} and ${names.slice(2).length} others like this`;
+      } else {
+        return "no one likes this";
+      }
+  }
+}
