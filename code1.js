@@ -772,3 +772,17 @@ function likes(names) {
       }
   }
 }
+
+function spinWords(string) {
+  //split word into arrays
+  //for loop the arrays
+  string = string.split(" ");
+  //string is now an array
+  console.log(string);
+  for (let i = 0; i < string.length; i++) {
+    if (string[i].length >= 5) {
+      string[i] = string[i].split("").reverse().join("");
+    }
+  }
+  return string.join(" ");
+}
