@@ -786,3 +786,11 @@ function spinWords(string) {
   }
   return string.join(" ");
 }
+
+String.prototype.camelCase = function () {
+  const words = this.match(/[a-zA-Z0-9]+/g);
+  if (!words) return "";
+  return words
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join("");
+};
