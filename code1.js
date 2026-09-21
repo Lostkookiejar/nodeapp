@@ -794,3 +794,7 @@ String.prototype.camelCase = function () {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
     .join("");
 };
+
+function createPhoneNumber(numbers) {
+  return `(${numbers.slice(0, 3).join("")}) ${numbers.slice(3, 6).join("")}-${numbers.slice(6, 10).join("")}`;
+}
