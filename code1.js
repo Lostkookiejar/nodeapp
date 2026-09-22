@@ -798,3 +798,21 @@ String.prototype.camelCase = function () {
 function createPhoneNumber(numbers) {
   return `(${numbers.slice(0, 3).join("")}) ${numbers.slice(3, 6).join("")}-${numbers.slice(6, 10).join("")}`;
 }
+
+function frame(balls) {
+  const blz = { R: 1, Y: 2, G: 3, Bn: 4, Be: 5, P: 6, Bk: 7 };
+
+  if (balls.includes("W")) return "Foul";
+
+  const regex = /(R|Y|G|Bn|Be|P|Bk)(\d*)/g;
+  let total = 0;
+  let match;
+
+  while ((match = regex.exec(balls)) !== null) {
+    const color = match[1];
+    const count = match[2] ? parseInt(match[2]) : 1;
+    total += blz[color] * count;
+  }
+
+  return total > 147 ? "invalid data" : total;
+}
