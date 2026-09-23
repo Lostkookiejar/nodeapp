@@ -816,3 +816,25 @@ function frame(balls) {
 
   return total > 147 ? "invalid data" : total;
 }
+
+function replaceCommon(string, letter) {
+  const counts = {};
+  for (const c of string) {
+    if (c === " ") continue;
+    counts[c] = (counts[c] || 0) + 1;
+  }
+
+  const maxCount = Math.max(...Object.values(counts));
+  let target;
+  for (const c of string) {
+    if (c !== " " && counts[c] === maxCount) {
+      target = c;
+      break;
+    }
+  }
+
+  return string
+    .split("")
+    .map((c) => (c === target ? letter : c))
+    .join("");
+}
