@@ -838,3 +838,29 @@ function replaceCommon(string, letter) {
     .map((c) => (c === target ? letter : c))
     .join("");
 }
+
+function areEqual(a, b) {
+  if (a === b) return true;
+  if (typeof a !== typeof b) return false;
+  if (Array.isArray(a) !== Array.isArray(b)) return false;
+
+  if (Array.isArray(a)) {
+    if (a.length !== b.length) return false;
+    const remaining = [...b];
+    for (const itemA of a) {
+      const idx = remaining.findIndex((itemB) => areEqual(itemA, itemB));
+      if (idx === -1) return false;
+      remaining.splice(idx, 1);
+    }
+    return true;
+  }
+
+  if (a !== null && b !== null && typeof a === "object") {
+    const keysA = Object.keys(a);
+    const keysB = Object.keys(b);
+    if (keysA.length !== keysB.length) return false;
+    return keysA.every((key) => key in b && areEqual(a[key], b[key]));
+  }
+
+  return false; // different primitive values, or mismatched null
+}
