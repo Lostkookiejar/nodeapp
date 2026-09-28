@@ -864,3 +864,15 @@ function areEqual(a, b) {
 
   return false; // different primitive values, or mismatched null
 }
+
+function findEvenIndex(arr) {
+  let left = 0;
+  let right = arr.reduce((a, b) => a + b, 0);
+
+  for (let i = 0; i < arr.length; i++) {
+    right -= arr[i]; // right now excludes arr[i]
+    if (left === right) return i;
+    left += arr[i]; // move arr[i] into the left side
+  }
+  return -1;
+}
