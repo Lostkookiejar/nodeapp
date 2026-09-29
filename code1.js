@@ -876,3 +876,23 @@ function findEvenIndex(arr) {
   }
   return -1;
 }
+
+function pathFinding(path) {
+  let x = 0;
+  let y = 0;
+
+  for (const move of path) {
+    if (move === "n") y += 1;
+    else if (move === "s") y -= 1;
+    else if (move === "e") x += 1;
+    else if (move === "w") x -= 1;
+  }
+
+  const launderette1 = { x: 3, y: 2 }; // e,n,e,e,n
+  const launderette2 = { x: -4, y: 3 }; // w,n,w,n,w,w,n
+
+  return (
+    (x === launderette1.x && y === launderette1.y) ||
+    (x === launderette2.x && y === launderette2.y)
+  );
+}
