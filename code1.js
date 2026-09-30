@@ -896,3 +896,29 @@ function pathFinding(path) {
     (x === launderette2.x && y === launderette2.y)
   );
 }
+
+function sumGroups(arr) {
+  let current = arr;
+
+  while (true) {
+    const next = [];
+    let i = 0;
+
+    while (i < current.length) {
+      let sum = current[i];
+      let j = i + 1;
+      // keep absorbing consecutive elements with the same parity
+      while (j < current.length && current[j] % 2 === current[i] % 2) {
+        sum += current[j];
+        j++;
+      }
+      next.push(sum);
+      i = j;
+    }
+
+    if (next.length === current.length) break; // no more merging happened
+    current = next;
+  }
+
+  return current.length;
+}
