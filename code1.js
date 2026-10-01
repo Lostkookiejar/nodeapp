@@ -922,3 +922,9 @@ function sumGroups(arr) {
 
   return current.length;
 }
+
+function wordCount(s) {
+  const excluded = new Set(["a", "the", "on", "at", "of", "upon", "in", "as"]);
+  const words = s.match(/[a-zA-Z]+/g) || [];
+  return words.filter((word) => !excluded.has(word.toLowerCase())).length;
+}
