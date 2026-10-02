@@ -928,3 +928,13 @@ function wordCount(s) {
   const words = s.match(/[a-zA-Z]+/g) || [];
   return words.filter((word) => !excluded.has(word.toLowerCase())).length;
 }
+
+function parityBit(binary) {
+  return binary
+    .split(" ")
+    .map((chunk) => {
+      const onesCount = chunk.split("").filter((bit) => bit === "1").length;
+      return onesCount % 2 === 0 ? chunk.slice(0, 7) : "error";
+    })
+    .join(" ");
+}
