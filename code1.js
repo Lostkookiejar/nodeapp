@@ -938,3 +938,22 @@ function parityBit(binary) {
     })
     .join(" ");
 }
+
+function frame(score) {
+  const frames = score.split(";").map((f) => f.trim());
+  let player1Wins = 0;
+  let player2Wins = 0;
+
+  const frameRegex = /^(\d+)(?:\([\d,]+\))?-(\d+)(?:\([\d,]+\))?$/;
+
+  for (const f of frames) {
+    const match = f.match(frameRegex);
+    const p1 = parseInt(match[1], 10);
+    const p2 = parseInt(match[2], 10);
+
+    if (p1 > p2) player1Wins++;
+    else player2Wins++;
+  }
+
+  return [player1Wins, player2Wins];
+}
