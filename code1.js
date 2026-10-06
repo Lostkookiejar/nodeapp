@@ -957,3 +957,36 @@ function frame(score) {
 
   return [player1Wins, player2Wins];
 }
+
+function cipherText(plainText) {
+  const normalized = plainText.toLowerCase().replace(/[^a-z]/g, "");
+  const len = normalized.length;
+
+  // find a, b such that a*b >= len, b >= a, b - a <= 1
+  let a = Math.floor(Math.sqrt(len)) || 1;
+  let b = Math.ceil(len / a);
+  while (b - a > 1) {
+    a++;
+    b = Math.ceil(len / a);
+  }
+
+  const padded = normalized.padEnd(a * b, " ");
+
+  // build a rows, each of length b
+  const rows = [];
+  for (let i = 0; i < a; i++) {
+    rows.push(padded.slice(i * b, (i + 1) * b));
+  }
+
+  // read down each column (b columns, each of length a)
+  const chunks = [];
+  for (let col = 0; col < b; col++) {
+    let chunk = "";
+    for (let row = 0; row < a; row++) {
+      chunk += rows[row][col];
+    }
+    chunks.push(chunk);
+  }
+
+  return chunks.join(" ");
+}
