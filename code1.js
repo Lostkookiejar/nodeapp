@@ -997,3 +997,7 @@ deadAntCount = function (ants) {
   const count = (ch) => rest.split(ch).length - 1;
   return Math.max(count("a"), count("n"), count("t"));
 };
+
+function toCamelCase(str) {
+  return str.replace(/[-_](.)/g, (_, ch) => ch.toUpperCase());
+}
