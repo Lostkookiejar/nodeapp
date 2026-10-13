@@ -990,3 +990,10 @@ function cipherText(plainText) {
 
   return chunks.join(" ");
 }
+
+deadAntCount = function (ants) {
+  if (!ants) return 0;
+  const rest = ants.replace(/ant/g, "");
+  const count = (ch) => rest.split(ch).length - 1;
+  return Math.max(count("a"), count("n"), count("t"));
+};
