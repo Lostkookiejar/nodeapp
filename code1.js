@@ -1001,3 +1001,13 @@ deadAntCount = function (ants) {
 function toCamelCase(str) {
   return str.replace(/[-_](.)/g, (_, ch) => ch.toUpperCase());
 }
+
+function substringTest(str1, str2) {
+  const a = str1.toLowerCase();
+  const b = str2.toLowerCase();
+
+  for (let i = 0; i < a.length - 1; i++) {
+    if (b.includes(a.slice(i, i + 2))) return true;
+  }
+  return false;
+}
