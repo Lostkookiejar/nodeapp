@@ -1011,3 +1011,100 @@ function substringTest(str1, str2) {
   }
   return false;
 }
+
+function solve(game) {
+  const d = game.split("").map(Number);
+  const n = d.length;
+  if (n === 0) return [[]];
+
+  const memo = new Map();
+
+  // best(i, v): shortest move sequences (sorted ascending) to finish from
+  // index i, where the leftmost digit currently has value v. Returns null if unwinnable.
+  function best(i, v) {
+    const key = i + "," + v;
+    if (memo.has(key)) return memo.get(key);
+
+    let bestLen = Infinity;
+    let result = [];
+
+    for (let k = 1; k <= v && i + k <= n; k++) {
+      const j = i + k;
+      let candidates;
+
+      if (j === n) {
+        candidates = [[k]]; // exact count, game won
+      } else if (d[j] > k) {
+        // new leftmost must stay above zero
+        const sub = best(j, d[j] - k);
+        if (!sub) continue;
+        candidates = sub.map((s) => [k, ...s]);
+      } else {
+        continue;
+      }
+
+      const len = candidates[0].length;
+      if (len < bestLen) {
+        bestLen = len;
+        result = candidates;
+      } else if (len === bestLen) {
+        result = result.concat(candidates);
+      }
+    }
+
+    const out = result.length ? result : null;
+    memo.set(key, out);
+    return out;
+  }
+
+  if (d[0] === 0) return [];
+  return best(0, d[0]) || [];
+}
+
+function solve(game) {
+  const d = game.split("").map(Number);
+  const n = d.length;
+  if (n === 0) return [[]];
+
+  const memo = new Map();
+
+  function best(i, v) {
+    const key = i + "," + v;
+    if (memo.has(key)) return memo.get(key);
+
+    let bestLen = Infinity;
+    let result = [];
+
+    for (let k = 1; k <= v && i + k <= n; k++) {
+      const j = i + k;
+      let candidates;
+
+      if (j === n) {
+        if (k !== v) continue; // final move must be an EXACT count
+        candidates = [[k]];
+      } else if (d[j] > k) {
+        // new leftmost must stay above zero
+        const sub = best(j, d[j] - k);
+        if (!sub) continue;
+        candidates = sub.map((s) => [k, ...s]);
+      } else {
+        continue;
+      }
+
+      const len = candidates[0].length;
+      if (len < bestLen) {
+        bestLen = len;
+        result = candidates;
+      } else if (len === bestLen) {
+        result = result.concat(candidates);
+      }
+    }
+
+    const out = result.length ? result : null;
+    memo.set(key, out);
+    return out;
+  }
+
+  if (d[0] === 0) return [];
+  return best(0, d[0]) || [];
+}
