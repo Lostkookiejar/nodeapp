@@ -1108,3 +1108,12 @@ function solve(game) {
   if (d[0] === 0) return [];
   return best(0, d[0]) || [];
 }
+
+class Singleton {
+  constructor() {
+    if (Singleton.instance) {
+      return Singleton.instance;
+    }
+    Singleton.instance = this;
+  }
+}
