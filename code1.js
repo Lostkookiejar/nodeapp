@@ -1125,3 +1125,8 @@ function solve(n) {
   }
   return c; // C(n)
 }
+
+function printerError(s) {
+  const errors = s.replace(/[a-m]/g, "").length;
+  return `${errors}/${s.length}`;
+}
