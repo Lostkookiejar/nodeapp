@@ -1117,3 +1117,11 @@ class Singleton {
     Singleton.instance = this;
   }
 }
+
+function solve(n) {
+  let c = 1n; // C(0)
+  for (let k = 0n; k < n; k++) {
+    c = (c * 2n * (2n * k + 1n)) / (k + 2n);
+  }
+  return c; // C(n)
+}
