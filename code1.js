@@ -1138,3 +1138,7 @@ function arraySum(arr) {
     return total;
   }, 0);
 }
+
+function solve(x, y) {
+  return x + (y * x * (x - 1n)) / 2n;
+}
