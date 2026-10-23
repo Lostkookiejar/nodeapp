@@ -1142,3 +1142,23 @@ function arraySum(arr) {
 function solve(x, y) {
   return x + (y * x * (x - 1n)) / 2n;
 }
+
+function upArray(arr) {
+  if (
+    arr.length === 0 ||
+    arr.some((d) => !Number.isInteger(d) || d < 0 || d > 9)
+  ) {
+    return null;
+  }
+
+  const result = [...arr];
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (result[i] < 9) {
+      result[i]++;
+      return result;
+    }
+    result[i] = 0; // 9 rolls over to 0, carry moves left
+  }
+
+  return [1, ...result]; // every digit was 9, so add a new leading 1
+}
