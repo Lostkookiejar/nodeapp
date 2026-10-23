@@ -1162,3 +1162,15 @@ function upArray(arr) {
 
   return [1, ...result]; // every digit was 9, so add a new leading 1
 }
+
+function sortNested3(arrays) {
+  // 1. flatten every integer in reading order, then sort ascending
+  const sorted = arrays.flat(Infinity).sort((a, b) => a - b);
+
+  // 2. rebuild the same structure, filling slots with sorted values in order
+  let i = 0;
+  const rebuild = (node) =>
+    Array.isArray(node) ? node.map(rebuild) : sorted[i++];
+
+  return rebuild(arrays);
+}
