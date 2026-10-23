@@ -1130,3 +1130,11 @@ function printerError(s) {
   const errors = s.replace(/[a-m]/g, "").length;
   return `${errors}/${s.length}`;
 }
+
+function arraySum(arr) {
+  return arr.reduce((total, item) => {
+    if (Array.isArray(item)) return total + arraySum(item);
+    if (typeof item === "number") return total + item;
+    return total;
+  }, 0);
+}
