@@ -1187,3 +1187,8 @@ function nbDig(n, d) {
 
   return count;
 }
+
+function sumOfIntegersInString(s) {
+  const numbers = s.match(/\d+/g) || [];
+  return numbers.reduce((sum, n) => sum + Number(n), 0);
+}
