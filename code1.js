@@ -1208,3 +1208,11 @@ function remember(str) {
 
   return result;
 }
+
+function nextHappyYear(year) {
+  let y = year + 1;
+  while (new Set(String(y)).size !== String(y).length) {
+    y++;
+  }
+  return y;
+}
