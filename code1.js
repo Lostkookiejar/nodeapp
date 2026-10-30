@@ -1174,3 +1174,16 @@ function sortNested3(arrays) {
 
   return rebuild(arrays);
 }
+
+function nbDig(n, d) {
+  const digit = String(d);
+  let count = 0;
+
+  for (let k = 0; k <= n; k++) {
+    for (const ch of String(k * k)) {
+      if (ch === digit) count++;
+    }
+  }
+
+  return count;
+}
