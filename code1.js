@@ -1192,3 +1192,19 @@ function sumOfIntegersInString(s) {
   const numbers = s.match(/\d+/g) || [];
   return numbers.reduce((sum, n) => sum + Number(n), 0);
 }
+
+function remember(str) {
+  const seen = new Set();
+  const added = new Set();
+  const result = [];
+
+  for (const ch of str) {
+    if (seen.has(ch) && !added.has(ch)) {
+      result.push(ch);
+      added.add(ch);
+    }
+    seen.add(ch);
+  }
+
+  return result;
+}
