@@ -1216,3 +1216,7 @@ function nextHappyYear(year) {
   }
   return y;
 }
+
+function binRota(arr) {
+  return arr.flatMap((row, i) => (i % 2 === 0 ? row : [...row].reverse()));
+}
